@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="author" content="Brayan Duran Velasquez">
+  <meta name="revised" content="06/12/2020">
+  <link rel="stylesheet" href="./semantic-ui/css/semantic.min.css">
+  <link rel="stylesheet" href="./css/base.css">
+  <script src="./jquery/jquery-3.3.1.slim.min.js"></script>
+  <script src="./semantic-ui/js/semantic.min.js"></script>
+  <title> Página no encontrada - CensaHogar </title>
+</head>
+
+<body>
+  <header class="encabezado" style="height:260px">
+    <nav class="menu-responsive menu-fixed">
+      <div class="ui menu" style="background: transparent">
+        <div class="ui item borderless" style="color: white; font-size: 18px; font-weight: bold">CensaHogar</div>
+
+        <div class="menu right">
+          <a href="/inicio" class="item" style="color: white; font-size: 16px;">Inicio</a>
+          <a href="/perfil" class="item" style="color: white; font-size: 16px;">Perfil</a>
+          <a href="/registro" class="item" style="color: white; font-size: 16px;">Registro</a>
+          <a href="/registrar" class="item" style="color: white; font-size: 16px;">Registrar Familia</a>
+          <a href="/comunidad" class="item" class="item" style="color: white; font-size: 16px;">Comunidad</a>
+          <a href="/" class="item" style="color: white; font-size: 16px;">Cerrar Sesion</a>
+        </div>
+      </div>
+    </nav>
+
+    <aside class="menu-aside menu-fixed">
+      <div class="ui menu" style="background: transparent">
+        <div class="ui item borderless" style="color: white; font-size: 18px; font-weight: bold">CensaHogar</div>
+
+        <div class="menu right">
+          <a class="ui item" id="abrir"> <i class="ui icon  bars "></i></a>
+        </div>
+
+        <div class="ui sidebar right vertical menu uncover left">
+          <a href="/inicio" class="item"> <i class="ui icon home"></i> Inicio</a>
+          <a href="/perfil" class="item"> <i class="ui icon user"></i> Perfil</a>
+          <a href="/registro" class="item"> <i class="ui icon book"></i> Registro</a>
+          <a href="/registrar" class="item"> <i class="ui icon add"></i> Registrar Familia</a>
+          <a href="/comunidad" class="item"> <i class="ui icon building"></i> Comunidad</a>
+          <br>
+          <div class="flex-center">
+            <a href="/" class="ui button red">Cerrar Sesion</a>
+          </div>
+          <div class="pusher"></div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="text-center" style="font-size: 24px; padding-top:60px;">
+      ¡Página No Encontrada!<br>
+    </div>
+    <div class="text-center" style="font-size: 22px; padding: 4px; color: rgb(243, 243, 243)">
+      <div>Has ingresado a una ruta</div>
+      <span>errónea</span>
+    </div>
+    </div>
+
+    <div class="flex-center" style="flex-direction: row">
+      <div class="ui statistic">
+        <div class="value" style="color: rgb(250, 250, 250)">404</div>
+        <div class="label" style="color:  rgb(250, 250, 250)">Error</div>
+      </div>
+    </div>
+
+    
+  </header>
+
+  <main class="flex-center mas-margin-bottom"> 
+      <a href="/inicio" class="ui button huge blue circular">Ir al Inicio</a>
+  </main>
+
+  <footer class="footer mas-margin-top">
+    <a href="/informacion">Informácion</a>
+  </footer>
+
+  <script>
+    $('#abrir').on('click', function () {
+      $('.ui.sidebar').sidebar('toggle');
+    })
+
+    // Verificar la sesion no existe
+    window.onload = function(){
+      let sesion = localStorage.getItem('sesion');
+
+      if(!sesion){
+        window.location = "/";
+      }
+    }
+  </script>
+</body>
+
+</html>

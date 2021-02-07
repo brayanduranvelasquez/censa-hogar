@@ -1,0 +1,74 @@
+<%- include('../template/head', { titulo: 'Mi Perfil - CensaHogar' }) %>
+
+<body>
+
+  <!-- El encabezado esta unido al contenido -->
+  <div class="encabezado" style="height: 300px">
+    <%- include('header.ejs') %>
+
+    <div class="perfil desaparecer-titulo" style="font-size: 40px">
+      Datos Personales
+
+      <div class="activo">
+        <p> &nbsp; </p>
+      </div>
+    </div> <!-- Perfil - Titulo -->
+
+    <div class="flex-center">
+        <div class="usuario">
+          <div>
+            <div class="foto">
+              <img src="./img/male.png" alt="">
+            </div>
+      
+            <div class="nombre">
+              Federico Martinez
+      
+              <div class="user">
+                @federicomartinez
+              </div>
+            </div>
+      
+            <div class="detalles">
+              <div>
+                <h3>Líder de Calle en la Comunidad "El Limón" <a href="/comunidad" class="ui button mini">Ver</a> </h3>
+              </div>
+      
+              <div>
+                <i class="ui icon user"></i> Federico José Martinez Velasquez
+              </div>
+              <div>
+                <i class="ui icon home"></i> Vive en la casa n° 201
+              </div>
+              <div>
+                <i class="ui icon book"></i> Cedula: 12323452
+              </div>
+              <div>
+                <i class="ui icon phone"></i> 04242398458
+              </div>
+              <div>
+                <i class="ui icon google"></i> federico2martinez@gmail.com
+              </div>
+      
+              <div>
+                <br>
+                <span class="ui label medium green">Has Registrado a 92 familias</span>
+                <span class="ui label medium teal">Registrado el 24-01-2019</span>
+                <span class="ui label medium blue">Usuario Verificado</span>
+              </div>
+      
+              <button class="ui blue button">Editar datos</button>
+            </div>
+          </div>
+        </div>
+    </div> <!-- Perfil -->
+    
+  </div>
+
+  <div class="espaciado-sobrante"></div>
+
+  <%- include('../template/footer.ejs') %>
+  <%- include('../template/script-aside.ejs') %>
+</body>
+
+</html>

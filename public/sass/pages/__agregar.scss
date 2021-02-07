@@ -1,0 +1,17 @@
+.titulo {
+  margin-top: 60px;
+  margin-left: 30px;
+  margin-bottom: 8px;
+  font-size: 40px;
+
+  .subtitulo {
+    margin-top: 10px;
+    margin-bottom: 8px;
+    color: rgb(238, 238, 238);
+    font-size: 20px;
+
+    &:hover {
+      cursor: default;
+    }
+  }
+}

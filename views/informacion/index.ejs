@@ -1,0 +1,44 @@
+<%- include('../template/head', { titulo: 'Informácion - CensaHogar' }) %>
+
+<body>
+
+  <div class="ui container font-size-default">
+    <div class="exit">
+      <i class="ui icon arrow left" id="regresar"></i>
+    </div>
+
+    <div class="img_informacion">
+      <img src="./img/img_informacion.png" class="ui image" alt="">
+    </div>
+
+    <div class="ui header">CensaHogar.
+      <div>Lleva un control de tu comunidad.</div>
+      <div>En tu labor como Líder de Calle.</div>
+      <div class="sub header">Sitio Web Estático</div><br>
+    </div>
+
+    <section>
+      A través de esta plataforma se tiene una idea, poder censar a todas las familias de tu comunidad con sus datos más comunes en tu obligación como Líder de Calle
+      para llevar un registro sistematizado. <br><br> <b>¿Que es un Líder de Calle?</b> en Venezuela, se refiere a aquella persona o grupo de personas de cada comunidad del país que llevan un control de todos los habitantes de dichas comunidades. Con esta plataforma, se busca facilitarle a cada uno de ellos poder registrar a cada familia, que en muchas comunidades puede haber muchas personas y que sus datos principales sean accesibles más rápido a través de métodos de búsqueda. 
+    </section><br>
+
+    <section>
+      Cabe destacar que este sitio web es estático, por lo cual toda la información que se encuentra en ella no provienen de bases de datos y a su vez, son datos falsos. Los formularios no envian la informacion a ninguna fuente externa. Igual, se le recomienda no ingresar datos certeros porque no serán guardados.
+    </section><br>
+
+    <div style="padding: 8px; text-align: center; color: #aaa">
+      CensaHogar - <a href="https://github.com/brayanduranvelasquez/censa-hogar" target="__blank"> ver repositorio </a> - 2020
+    </div><br><br>
+  </div>
+
+  <script>
+    let btnRegresar = document.getElementById('regresar');
+
+    btnRegresar.addEventListener('click', () => {
+      window.history.back();
+    })
+  </script>
+
+</body>
+
+</html>

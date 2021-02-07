@@ -1,0 +1,79 @@
+.banner {
+  width: 100%;
+  position: block;
+
+  div {
+    z-index: 1000;
+    position: absolute;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 30px;
+    background:transparent;
+    color: rgb(255, 255, 255);
+    transition: font-size 1s;
+
+    &:hover {
+      i {
+        font-size: 16px;
+        cursor: pointer;
+      }
+    }
+  }
+  
+  img {
+    padding:2px;
+    width: 100%;
+
+    &:hover {
+      opacity: 0.7;
+      cursor: pointer;
+    }
+
+    &:active {
+      opacity: 0.6;
+    }
+  }
+}
+  
+  
+  .olvido-password {
+    color: rgb(141, 141, 141);
+    font-size: 16px;
+    float: right;
+    cursor: pointer;
+  }
+
+  .primera-vez{
+    text-align: center; 
+
+    &__text {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    &__link {
+      font-size: 20px;
+      font-weight: bold;
+      color: rgb(0, 68, 255);
+    }
+  }
+
+  .social {
+    text-align: center; 
+    font-size: 40px;
+
+    i {
+      transition: transform 0.3s;
+
+      &:hover {
+        transform: scale(1.1);
+        color: rgb(36, 36, 36);
+        font-weight: bold;
+        cursor: pointer;
+      }
+    }
+      
+  }

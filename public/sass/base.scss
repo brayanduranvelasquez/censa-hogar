@@ -1,0 +1,59 @@
+@import './pages/__informacion.scss';
+@import './pages/__inicio-sesion.scss';
+@import './pages/__registro.scss';
+@import './pages/__perfil.scss';
+@import './pages/__agregar.scss';
+@import './pages/__comunidad.scss';
+
+@import './components/__encabezado.scss';
+@import './components/__menu.scss';
+@import './components/__footer.scss';
+
+.font-size-default {
+    font-size: 16px;
+}
+
+.field {
+    padding-bottom: 10px;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+}
+
+.flex-right {
+    display: flex;
+    justify-content: right;
+}
+  
+.text-center {
+    text-align: center;
+}
+
+.text-normal {
+    display: flex;
+    flex-direction: column;
+    word-break: normal;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.mini-margin-top {
+    margin-top: 6px;
+}
+
+.margin-top {
+    margin-top: 40px;
+}
+
+.mas-margin-top {
+    margin-top: 60px;
+}
+
+.margin-vertical {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}

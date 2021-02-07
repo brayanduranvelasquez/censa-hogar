@@ -1,0 +1,35 @@
+<%- include('../template/head.ejs', { titulo: '¡Familia Registrada! - CensaHogar' }) %>
+
+<body>
+  <header class="encabezado" style="height: 180px;">
+    <%- include('header.ejs') %>
+
+    <div class="titulo">
+      <span>¡Enhorabuena!</span><br>
+
+      <div class="subtitulo">
+        Comunidad "El Limón"<br>
+        <span>@federicomartinez <div class="ui label empty circular green"></div></span>
+      </div>
+    </div>
+  </header>
+
+  <main class="ui segments horizontal">
+    <div class="ui segment">
+      <div class="ui sizer vertical segment">
+        <div class="ui icon center aligned header">
+          <i class="icon check green"></i>
+          <div class="content">La familia ha sido exitosamente registrada</div>
+          <div class="sub header segment basic">¿Deseas ver sus datos, o registrar otra familia?</div><br>
+          <a href="/registrar" class="ui button blue">Registrar otra</a>
+          <a class="ui button blue">Ver datos</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <%- include('../template/footer.ejs') %>
+  <%- include('../template/script-aside.ejs') %>
+</body>
+
+</html>

@@ -1,0 +1,262 @@
+.exit {
+  text-align: left;
+  font-size: 28px;
+  margin-top: 20px; }
+  .exit i {
+    padding: 4px;
+    transition: background 0.2s;
+    border-radius: 30%; }
+    .exit i:hover {
+      background: #ccc;
+      cursor: pointer; }
+
+.img_informacion {
+  display: flex;
+  justify-content: center; }
+  .img_informacion img {
+    width: 65%; }
+
+.banner {
+  width: 100%;
+  position: block; }
+  .banner div {
+    z-index: 1000;
+    position: absolute;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 30px;
+    background: transparent;
+    color: white;
+    transition: font-size 1s; }
+    .banner div:hover i {
+      font-size: 16px;
+      cursor: pointer; }
+  .banner img {
+    padding: 2px;
+    width: 100%; }
+    .banner img:hover {
+      opacity: 0.7;
+      cursor: pointer; }
+    .banner img:active {
+      opacity: 0.6; }
+
+.olvido-password {
+  color: #8d8d8d;
+  font-size: 16px;
+  float: right;
+  cursor: pointer; }
+
+.primera-vez {
+  text-align: center; }
+  .primera-vez__text {
+    font-size: 24px;
+    font-weight: bold; }
+  .primera-vez__link {
+    font-size: 20px;
+    font-weight: bold;
+    color: #0044ff; }
+
+.social {
+  text-align: center;
+  font-size: 40px; }
+  .social i {
+    transition: transform 0.3s; }
+    .social i:hover {
+      transform: scale(1.1);
+      color: #242424;
+      font-weight: bold;
+      cursor: pointer; }
+
+.busqueda {
+  margin-top: 20px;
+  margin-bottom: 25px; }
+
+.button-floating {
+  z-index: 10000;
+  position: fixed;
+  bottom: 20px;
+  right: 20px; }
+
+.usuario {
+  display: block;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  box-shadow: 2px 2px 2px 0px #ebebeb;
+  color: white;
+  width: 80%;
+  max-width: 860px;
+  padding: 20px;
+  background: white;
+  border: #ececec solid 1px;
+  margin-bottom: 50px; }
+  .usuario div {
+    padding: 8px;
+    display: grid;
+    grid-template-areas: "foto nombre" "foto detalles";
+    grid-template-columns: 30% 70%; }
+    .usuario div .foto {
+      grid-area: foto;
+      text-align: center;
+      display: flex;
+      justify-content: center; }
+      .usuario div .foto img {
+        text-align: center;
+        width: 150px;
+        height: 150px; }
+    .usuario div .detalles {
+      display: flex;
+      flex-direction: column;
+      grid-area: detalles;
+      color: black; }
+      .usuario div .detalles div {
+        padding: 0;
+        display: inline-block; }
+      .usuario div .detalles button {
+        margin-top: 8px; }
+    .usuario div .nombre {
+      display: flex;
+      flex-direction: column;
+      grid-area: nombre;
+      color: black;
+      font-size: 28px; }
+      .usuario div .nombre .user {
+        color: #ccc; }
+
+.espaciado-sobrante {
+  display: block;
+  width: 100%;
+  height: 200px; }
+
+@media screen and (max-width: 680px) {
+  .usuario {
+    bottom: -460px; }
+    .usuario div {
+      grid-template-areas: "foto" "nombre" "detalles";
+      grid-template-columns: 100%; }
+      .usuario div .foto {
+        display: flex;
+        justify-content: center; }
+        .usuario div .foto img {
+          width: 150px;
+          height: 150px; }
+
+  .espaciado-sobrante {
+    height: 400px; } }
+.titulo {
+  margin-top: 60px;
+  margin-left: 30px;
+  margin-bottom: 8px;
+  font-size: 40px; }
+  .titulo .subtitulo {
+    margin-top: 10px;
+    margin-bottom: 8px;
+    color: #eeeeee;
+    font-size: 20px; }
+    .titulo .subtitulo:hover {
+      cursor: default; }
+
+.tablets div {
+  overflow-x: scroll;
+  margin-bottom: 12px; }
+
+.encabezado {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  background: #2185d0;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  padding-top: 24px;
+  margin-bottom: 20px;
+  color: white; }
+  .encabezado .perfil {
+    margin-top: 60px;
+    margin-left: 30px;
+    font-size: 50px; }
+    .encabezado .perfil .activo {
+      margin-top: 10px;
+      margin-bottom: 8px;
+      color: #eeeeee;
+      font-size: 20px; }
+      .encabezado .perfil .activo:hover {
+        cursor: default; }
+
+@media screen and (max-width: 780px) {
+  .menu-responsive {
+    display: none; }
+
+  .menu-aside {
+    display: block; } }
+@media screen and (min-width: 780px) {
+  .menu-responsive {
+    display: block; }
+
+  .menu-aside {
+    display: none; } }
+@media screen and (max-width: 450px) {
+  .desaparecer-titulo {
+    display: none; } }
+.menu-fixed {
+  z-index: 100000;
+  width: 100%;
+  background: #2185d0;
+  position: fixed;
+  top: 0; }
+
+.footer {
+  margin-bottom: 10px;
+  text-align: right;
+  font-size: 16px; }
+  .footer a {
+    color: #585858;
+    margin-right: 8px;
+    transition: font-size 0.3s; }
+    .footer a:hover {
+      font-size: 18px;
+      color: #242424;
+      font-weight: bold; }
+
+.font-size-default {
+  font-size: 16px; }
+
+.field {
+  padding-bottom: 10px; }
+
+.flex-center {
+  display: flex;
+  justify-content: center; }
+
+.flex-right {
+  display: flex;
+  justify-content: right; }
+
+.text-center {
+  text-align: center; }
+
+.text-normal {
+  display: flex;
+  flex-direction: column;
+  word-break: normal; }
+
+.text-bold {
+  font-weight: bold; }
+
+.mini-margin-top {
+  margin-top: 6px; }
+
+.margin-top {
+  margin-top: 40px; }
+
+.mas-margin-top {
+  margin-top: 60px; }
+
+.margin-vertical {
+  margin-top: 30px;
+  margin-bottom: 30px; }
+
+/*# sourceMappingURL=base.css.map */

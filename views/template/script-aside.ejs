@@ -1,0 +1,28 @@
+<script>
+  // Para abir y cerrar el menu lateral
+  $('#abrir').on('click', function () {
+    $('.ui.sidebar').sidebar('toggle');
+
+
+  })
+
+  // Verificar la sesion no existe
+  window.onload = function () {
+    let sesion = localStorage.getItem('sesion');
+
+    if (!sesion) {
+      window.location = "/";
+    }
+  }
+
+  // Al presionar el boton de cerrar sesion (Existen 2. Uno en el nav y otro en el aside)
+  let btnCerrar = document.querySelectorAll('.btnCerrar');
+  let btnsCerrar = btnCerrar.length;
+
+  for (let i = 0; i <= btnsCerrar; i++) {
+    btnCerrar[i].addEventListener('click', () => {
+      localStorage.clear();
+      window.location = "/";
+    })
+  }
+</script>

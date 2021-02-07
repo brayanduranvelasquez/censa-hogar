@@ -1,0 +1,558 @@
+<%- include('../template/head.ejs', { titulo: 'Registrar Familia - CensaHogar' }) %>
+
+<body>
+  <header class="encabezado" style="height: 180px;">
+    <%- include('header.ejs') %>
+
+    <div class="titulo">
+      <span>Registrar Familia</span><br>
+
+      <div class="subtitulo">
+        Comunidad "El Limón"<br>
+        <span>@federicomartinez <div class="ui label empty circular green"></div></span>
+      </div>
+    </div>
+  </header>
+
+  <main class="ui form container">
+    <form method="post" action="/exitoso">
+    <div class="ui header">¡Registre una nueva familia!
+      <div>Ingrese los datos del Jefe de Familia</div>
+    </div>
+
+    <div class="ui header">Datos Principales</div>
+    <div class="fields">
+      <div class="field eight wide">
+        <label for="nombre">Nombres</label>
+        <input type="text" id="nombre" minlength="2" maxlength="40" placeholder="Nombres" required>
+      </div>
+      <div class="field eight wide">
+        <label for="apellido">Apellidos</label>
+        <input type="text" id="apellido" minlength="2" maxlength="40" placeholder="Apellidos" required>
+      </div>
+    </div>
+
+    <div class="fields">
+      <div class="field eight wide">
+        <label for="cedula">Cedula (Puede ser opcional, ejemplo: ser menor de edad)</label>
+        <input type="number" id="cedula" minlength="5" maxlength="20" placeholder="Cedula de Identidad">
+      </div>
+      <div class="field eight wide">
+        <label for="numero">Número de Teléfono (Opcional)</label>
+        <div class="ui input">
+          <input type="text" id="numero" minlength="6" maxlength="18" placeholder="Número de Teléfono (OPCIONAL)">
+        </div>
+      </div>
+    </div>
+
+    <div class="fields">
+      <div class="field eight wide">
+        <label for="trabaho">Trabajo Actual o Ocupacion (Opcional)</label>
+        <input type="text" id="trabajo minlength="5" maxlength="30" placeholder="Estudiante, Trabajador Social, Finanzas, Profesor, etc" required>
+      </div>
+      <div class="field eight wide">
+        <label for="correo">Correo Electronico (Opcional)</label>
+        <div class="ui input">
+          <input type="email" id="correo" minlength="6" maxlength="18" placeholder="Correo Electronico">
+        </div>
+      </div>
+    </div>
+
+    <div class="fields">
+      <div class="field eight wide">
+        <label for="profesion">Profesion (Opcional)</label>
+        <input type="text" id="profesion" minlength="5" maxlength="20" placeholder="Profesion (Opcional)" required>
+      </div>
+      <div class="field eight wide">
+        <label for="nivel">Nivel de Intruccion</label>
+        <select required id="nivel">
+          <option disabled selected>Selecciona</option>
+          <option value=""> Sin estudios academicos </option>
+          <option value=""> Primaria </option>
+          <option value=""> Bachillerato </option>
+          <option value=""> Universitario </option>
+        </select>
+      </div>
+    </div>
+
+    <label for="fecha" class="text-bold">Fecha de nacimiento:</label>
+    <div class="fields">
+      <div class="field four wide">
+        <label for="dia">Dia</label>
+        <select required id="dia">
+          <option disabled selected>Elija un dia</option>
+          <% for(let i = 1; i <= 31; i++){ %>
+          <option value=""> <%= i %> </option>
+          <% } %>
+        </select>
+      </div>
+
+      <div class="field four wide">
+        <label for="mes">Mes</label>
+        <div class="ui input">
+          <select for="mes" required>
+            <option disabled selected>Elija un mes</option>
+            <option value="">Enero</option>
+            <option value="">Febrero</option>
+            <option value="">Marzo</option>
+            <option value="">Abril</option>
+            <option value="">Mayo</option>
+            <option value="">Junio</option>
+            <option value="">Julio</option>
+            <option value="">Agosto</option>
+            <option value="">Septiembre</option>
+            <option value="">Octubre</option>
+            <option value="">Noviembre</option>
+            <option value="">Diciembre</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field four wide">
+        <label for="año">Año</label>
+        <select id="año" required>
+          <option disabled selected>Elija un año</option>
+          <% let data = new Date(); let año = data.getFullYear(); %>
+          <% for(let i = año; i >= 1; i--){ %>
+          <option value=""> <%= i %> </option>
+          <% } %>
+        </select>
+      </div>
+    </div>
+
+    <div class="fields">
+      <div class="field four wide">
+        <label for="parentesco">Parentesco</label>
+        <div class="ui input">
+          <select for="parentesco" required>
+            <option disabled selected>Elija una opción</option>
+            <option>Padre</option>
+            <option>Madre</option>
+            <option>Hijo(a)</option>
+            <option>Tio(a)</option>
+            <option>Abuelo(a)</option>
+            <option>Sobrino(o)</option>
+            <option>Nieto(a)</option>
+            <option>Amigo(a)</option>
+            <option>Esposo(a)</option>
+            <option>Otro</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="ui sub text-bold" style="padding-bottom: 4px;">Género:</div>
+    <div class="fields">
+      <div class="field two wide">
+        <div class="ui radio checkbox">
+          <input type="radio" name="genero" id="hombre" required>
+          <label for="hombre">Hombre</label>
+        </div>
+      </div>
+      <div class="field four wide">
+        <div class="ui radio checkbox">
+          <input type="radio" name="genero" id="mujer" required>
+          <label for="mujer">Mujer</label>
+        </div>
+      </div>
+    </div><br>
+
+    <!---------------------------------------------------------------------------->
+
+    <div class="ui header">Datos de la Vivienda</div>
+    <div class="fields">
+      <div class="field eight wide">
+        <label for="condicion">Condición de la vivienda</label>
+        <select class="ui dropdown" id="condicion" name="condicion" required>
+          <option selected disabled>Selecciona</option>
+          <option value="Vivienda propia">Vivienda propia</option>
+          <option value="Vivienda alquilada">Vivienda alquilada</option>
+          <option value="Vivienda en proceso de desalojo">Vivienda en proceso de desalojo</option>
+          <option value="Vivienda tipo refugio">Vivienda tipo refugio</option>
+          <option value="Vivienda trasitorial">Vivienda trasitorial</option>
+          <option value="Vivienda prestada">Vivienda prestada</option>
+          <option value="Vivienda cedida">Vivienda cedida</option>
+          <option value="Vivienda  de la empresa">Vivienda de la empresa</option>
+          <option value="Vivienda tradicional indigena">Vivienda tradicional indigena</option>
+          <option value="Habitacion alquilada(pieza)">Habitacion alquilada(pieza)</option>
+          <option value="Situacion de calle">Situacion de calle</option>
+        </select>
+      </div>
+      <div class="field eight wide">
+        <label for="tipo">Tipo de vivienda</label>
+        <select class="ui dropdown" id="tipo" name="tipo" required>
+          <option selected="" disabled="" value="">Selecciona</option>
+          <option value="Casa">Casa</option>
+          <option value="Quinta">Quinta</option>
+          <option value="Apartamento">Apartamento</option>
+          <option value="Casa coloquial">Casa coloquial</option>
+          <option value="Casa de vecindad">Casa de vecindad</option>
+          <option value="Anexo">Anexo</option>
+          <option value="Habitacion">Habitacion</option>
+          <option value="Rancho">Rancho</option>
+          <option value="Casa indigena">Casa indigena</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="fields">
+      <div class="field eight wide">
+        <label for="servicioshigienicos">Servicios higienicos</label>
+        <select class="ui dropdown">
+          <option selected="" disabled="" value="">Selecciona</option>
+          <option value="Conectado a la red publica de alcantarillado">Conectado a la red publica de alcantarillado
+          </option>
+          <option value="Conectado a pozo septico">Conectado a pozo septico</option>
+          <option value="Letrina">Letrina</option>
+          <option value="No tiene">No tiene</option>
+        </select>
+      </div>
+
+      <div class="field eight wide">
+        <label for="materialparedes">Material predominante en paredes</label>
+        <select class="ui dropdown">
+          <option selected="" disabled="" value="">Selecciona</option>
+          <option value="Ladrillo o bloques">Ladrillo o bloques</option>
+          <option value="Madera">Madera</option>
+          <option value="Lamina">Lamina</option>
+          <option value="Adobe/Tapia">Adobe/Tapia</option>
+          <option value="Otros materiales">Otros materiales</option>
+        </select>
+      </div>
+
+    </div>
+
+    <div class="fields">
+      <div class="field eight wide">
+        <label>Material predominante en piso</label>
+        <select class="ui dropdown">
+          <option selected="" disabled="" value="">Selecciona</option>
+          <option value="Parquet,tablon o piso flotante">Parquet,tablon o piso flotante</option>
+          <option value="Ceramica,baldosa,vinil o marmeton">Ceramica,baldosa,vinil o marmeton</option>
+          <option value="Ladrillo o cemento">Ladrillo o cemento</option>
+          <option value="Tierra">Tierra</option>
+          <option value="Otros materiales">Otros materiales</option>
+        </select>
+      </div>
+
+      <div class="field eight wide">
+        <label for="materialtecho">Material predominante en techo</label>
+        <select class="form-control" id="materialtecho" name="materialtecho" required="">
+          <option selected="" disabled="" value="">Selecciona</option>
+          <option value="Platabanda">Platabanda</option>
+          <option value="Placa">Placa</option>
+          <option value="Zinc">Zinc</option>
+          <option value="Asbesto">Asbesto</option>
+          <option value="Otros materiales">Otros materiales</option>
+        </select>
+      </div>
+
+    </div>
+
+    <div class="text-bold" style="padding-bottom: 6px;">Servicios basicos:</div>
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input type="checkbox">
+        <label>Agua potable</label>
+      </div>
+    </div>
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input type="checkbox">
+        <label>Aguas residuales</label>
+      </div>
+    </div>
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input type="checkbox">
+        <label>Electricidad</label>
+      </div>
+    </div>
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input type="checkbox">
+        <label>Gas directo</label>
+      </div>
+    </div>
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input type="checkbox">
+        <label>Telefonia</label>
+      </div>
+    </div>
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input type="checkbox">
+        <label class="custom-control-label" for="internet">Internet</label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="text">Adjudicada por la Gran Misión Vivienda Venezuela</label>
+      <div class="ui radio checkbox">
+        <input type="radio" id="radio1-1" name="radio1" class="custom-control-input" value="Si" required="">
+        <label style="margin-right: 18px;">Si</label>
+      </div>
+      <div class="ui radio checkbox">
+        <input type="radio" id="radio1-2" name="radio1" class="custom-control-input" value="No" required="">
+        <label class="custom-control-label" for="radio1-2">No</label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="text">Cuenta con documentos de propiedad registrados y protocolizados</label>
+      <div class="ui radio checkbox">
+        <input type="radio">
+        <label style="margin-right: 18px;">Si</label>
+      </div>
+      <div class="ui radio checkbox">
+        <input type="radio">
+        <label>No</label>
+      </div>
+    </div><br>
+
+    <div class="ui header">Papel protagonismo en la Comunidad
+      <div class="sub header">Si esta persona no pertenece a ninguna de las siguientes opciones, elija "No pertenece"
+      </div>
+    </div>
+
+    <div class="fields">
+      <div class="field eight wide">
+        <label>Protagonigo en:</label>
+        <select required>
+          <option selected>No Pertenece</option>
+          <option>Mesa de Agua</option>
+          <option>Mesa de Gas</option>
+          <option>Mesa de Electricidad</option>
+          <option>Movimiento Deportivo</option>
+          <option>Juridico</option>
+        </select>
+      </div>
+      <div class="field eight wide">
+        <label>¿Principal o Suplente?</label>
+        <select required>
+          <option selected>No Pertenece</option>
+          <option>Principal</option>
+          <option>Suplente</option>
+        </select>
+      </div>
+    </div><br>
+
+    <div class="ui divider"></div>
+
+    <div class="bloqueIntegrantes"></div><br>
+    <div class="flex-center" style="margin-top: 14px;"><br>
+      <div class="button ui blue medium" id="agregarIntegrante">&nbsp; Agregar un Integrante de Familia &nbsp; <i class="icon add"></i></div>
+    </div><br><br>
+
+    <div class="ui divider"></div>
+
+    <div style="margin-bottom: 18px;">
+      <button class="ui green right floated button"> &nbsp; Realizar registro &nbsp; <i class="icon send"></i></button>
+    </div>
+    </form>
+
+  </main>
+
+  <div style="padding: 40px;">
+  </div>
+
+  <script>
+    let btnAgregarIntegrante = document.getElementById('agregarIntegrante');
+    let bloqueIntegrantes = document.querySelectorAll('.bloqueIntegrantes');
+    let integrante = document.getElementsByClassName('integrante');
+
+    btnAgregarIntegrante.addEventListener('click', () => {
+
+      let bloqueIntegrantes = document.querySelectorAll('.bloqueIntegrantes');
+      let todosLosBloques = bloqueIntegrantes.length;
+
+      bloqueIntegrantes[todosLosBloques-1].innerHTML += `
+      <div class="ui segment padded" style="margin-top:14px"> 
+        <div class="ui header bloque">Datos Principales del Integrante <button class="ui button red eliminarIntegrante "> &nbsp; Eliminar &nbsp; <i class="icon delete"></i></button></div>
+
+        <div class="fields">
+          <div class="field eight wide">
+            <label>Nombres</label>
+            <input type="text" id="nombre" minlength="2" maxlength="40" placeholder="Nombres" required>
+          </div>
+          <div class="field eight wide">
+            <label>Apellidos</label>
+            <input type="text" id="apellido" minlength="2" maxlength="40" placeholder="Apellidos" required>
+          </div>
+        </div>
+
+        <div class="fields">
+          <div class="field eight wide">
+            <label>Cedula de Identidad (Puede ser opcional, ejemplo: ser menor de edad)</label>
+            <input type="number" id="cedula" minlength="5" maxlength="20" placeholder="Cedula de Identidad" required>
+          </div>
+          <div class="field eight wide">
+            <label>Número de Teléfono (OPCIONAL)</label>
+            <div class="ui input">
+              <input type="text" id="numero" minlength="6" maxlength="18" placeholder="Número de Teléfono (OPCIONAL)">
+            </div>
+          </div>
+        </div>
+
+        <div class="fields">
+          <div class="field eight wide">
+            <label>Trabajo Actual o Ocupacion (Opcional)</label>
+            <input type="text" id="trabajo minlength="5" maxlength="30" placeholder="Estudiante, Trabajador Social, Finanzas, Profesor, etc" required>
+          </div>
+          <div class="field eight wide">
+            <label>Correo Electronico (Opcional)</label>
+            <div class="ui input">
+              <input type="email" id="correo" minlength="6" maxlength="18" placeholder="Correo Electronico">
+            </div>
+          </div>
+        </div>
+
+        <div class="fields">
+          <div class="field eight wide">
+            <label>Profesion (Opcional)</label>
+            <input type="text" id="profesion" minlength="5" maxlength="20" placeholder="Profesion (Opcional)" required>
+          </div>
+          <div class="field eight wide">
+            <label>Nivel de Intruccion</label>
+            <select required id="nivel">
+              <option disabled selected>Selecciona</option>
+              <option value=""> Sin estudios academicos </option>
+              <option value=""> Primaria </option>
+              <option value=""> Bachillerato </option>
+              <option value=""> Universitario </option>
+            </select>
+          </div>
+        </div>
+
+        <label for="fecha" class="text-bold">Fecha de nacimiento:</label>
+        <div class="fields">
+          <div class="field four wide">
+            <label>Dia</label>
+            <select required id="dia">
+              <option disabled selected>Elija un dia</option>
+              <% for(let i = 1; i <= 31; i++){ %>
+              <option value=""> <%= i %> </option>
+              <% } %>
+            </select>
+          </div>
+
+          <div class="field four wide">
+            <label>Mes</label>
+            <div class="ui input">
+              <select for="mes" required>
+                <option disabled selected>Elija un mes</option>
+                <option value="">Enero</option>
+                <option value="">Febrero</option>
+                <option value="">Marzo</option>
+                <option value="">Abril</option>
+                <option value="">Mayo</option>
+                <option value="">Junio</option>
+                <option value="">Julio</option>
+                <option value="">Agosto</option>
+                <option value="">Septiembre</option>
+                <option value="">Octubre</option>
+                <option value="">Noviembre</option>
+                <option value="">Diciembre</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field four wide">
+            <label>Año</label>
+            <select id="año" required>
+              <option disabled selected>Elija un año</option>
+              <% for(let i = año; i >= 1; i--){ %>
+              <option value=""> <%= i %> </option>
+              <% } %>
+            </select>
+          </div>
+        </div>
+
+        <div class="fields">
+          <div class="field four wide">
+            <label for="parentesco">Parentesco</label>
+              <div class="ui input">
+                <select for="parentesco" required>
+                  <option disabled selected>Elija una opción</option>
+                  <option>Padre</option>
+                  <option>Madre</option>
+                  <option>Hijo(a)</option>
+                  <option>Tio(a)</option>
+                  <option>Abuelo(a)</option>
+                  <option>Sobrino(o)</option>
+                  <option>Nieto(a)</option>
+                  <option>Amigo(a)</option>
+                  <option>Esposo(a)</option>
+                  <option>Otro</option>
+                </select>
+              </div>
+          </div>
+        </div>
+
+
+
+        <div class="ui sub text-bold" style="padding-bottom: 4px;">Género:</div>
+        <div class="fields">
+          <div class="field two wide">
+            <div class="ui radio checkbox">
+              <input type="radio" name="genero" id="hombre" required>
+              <label>Hombre</label>
+            </div>
+          </div>
+          <div class="field four wide">
+            <div class="ui radio checkbox">
+              <input type="radio" name="genero" id="mujer" required>
+              <label>Mujer</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="ui header">Papel protagonismo en la Comunidad
+          <div class="sub header">Si esta persona no pertenece a ninguna de las siguientes opciones, elija "No pertenece"</div>
+        </div>
+
+        <div class="fields">
+          <div class="field eight wide">
+            <label>Protagonigo en:</label>
+            <select required>
+              <option selected>No Pertenece</option>
+              <option>Mesa de Agua</option>
+              <option>Mesa de Gas</option>
+              <option>Mesa de Electricidad</option>
+              <option>Movimiento Deportivo</option>
+              <option>Juridico</option>
+            </select>
+          </div>
+          <div class="field eight wide">
+            <label>¿Principal o Suplente?</label>
+            <select required>
+              <option selected>No Pertenece</option>
+              <option>Principal</option>
+              <option>Suplente</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="bloqueIntegrantes"></div>`;
+    
+      let bloque = document.querySelectorAll('.bloque');
+      let bloques = bloque.length;
+
+      for(let i = 0; i <= bloques; i++){
+        bloque[i].addEventListener("click", eliminarBloque);
+      }
+
+    })
+
+      
+    function eliminarBloque(){
+      this.parentElement.remove(this);
+    }
+  </script>
+
+  <%- include('../template/footer.ejs') %>
+  <%- include('../template/script-aside.ejs') %>
+</body>
+
+</html>

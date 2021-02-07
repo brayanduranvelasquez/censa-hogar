@@ -1,0 +1,105 @@
+<%- include('template/head', { titulo: 'Inicio de Sesion - CensaHogar' }) %>
+
+<body>
+
+  <header class="banner" id="banner">
+    <div>
+      <i class="ui icon white delete" id="ocultar-banner"></i>
+    </div>
+    <img src="./img/banner.jpg" >
+  </header>
+
+  <main class="ui container">
+    <section class="text-center" style="margin-top: 60px; margin-bottom: 60px">
+      <div style="font-size: 40px"> Hola, Bienvenido/a </div><br>
+      <div style="font-size: 22px"> Inicia tu sesión </div>
+      <div style="font-size: 22px"> <b>CensaHogar</b>, para cualquier comunidad </div>
+    </section>
+
+    <section class="ui grid">
+      <div class="column two wide"></div>
+
+      <div class="column twelve wide">
+        <div class="ui form">
+
+          <div class="field sixteen wide labeled">
+            <label class="font-size-default text-normal">Correo Electronico o Usuario</label>
+
+            <div class="ui input labeled">
+              <div class="ui label"> <i class="ui icon user"></i> </div>
+              <input type="text" placeholder="Ingrese su usuario">
+            </div>
+          </div>
+
+          <div class="field sixteen wide labeled">
+            <label class="font-size-normal">Contraseña</label>
+
+            <div class="ui input labeled">
+              <div class="ui label"> <i class="ui icon lock"></i> </div>
+              <input type="password" placeholder="Ingrese su contraseña">
+            </div>
+            <div class="olvido-password">¿Olvido su contraseña?</div>
+          </div>
+
+          <div class="flex-center margin-top">
+            <div style="width: 85%;" class="ui blue buttons">
+              <a class="ui button huge" id="btnIniciar">Iniciar Sesion</a>
+            </div>
+          </div>
+
+          <div class="primera-vez margin-top">
+            <div class="primera-vez__text">
+              <p>¿Eres Líder de Calle y no te has registrado?</p>
+            </div>
+
+            <div class="primera-vez__link">
+              <a href="#">Puedes registrarte</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="column two wide"></div>
+    </section>
+
+    <section class="social mas-margin-top">
+      <i class="ui icon facebook"></i>
+      <i class="ui icon google"></i>
+      <i class="ui icon instagram"></i>
+    </section>
+  </main>
+
+  <%- include('template/footer') %>
+
+  <script>
+    window.onload = function(){
+      let sesion = localStorage.getItem('sesion');
+
+      if(sesion){
+        window.location = "/inicio";
+      }
+    }
+
+    ////////////////////////////////////////////////////////////////////
+
+    let banner = document.getElementById('banner');
+    let ocultarBanner = document.getElementById('ocultar-banner');
+
+    ocultarBanner.addEventListener('click', () => {
+      banner.style.display = 'none';
+    })
+
+    ////////////////////////////////////////////////////////////////////
+
+    let btnIniciar = document.getElementById('btnIniciar');
+
+    btnIniciar.addEventListener('click', () => {
+      localStorage.setItem('sesion', true);
+
+      window.location = "/inicio";
+    })
+  </script>
+</body>
+
+</html>

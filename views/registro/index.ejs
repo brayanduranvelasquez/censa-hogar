@@ -1,0 +1,110 @@
+<%- include('../template/head', { titulo: 'Registro - CensaHogar' }) %>
+
+<body>
+  <header class="encabezado">
+    <%- include('header') %>
+
+    <div class="perfil">
+      <span style="font-size: 40px">Registro</span>
+
+      <div class="activo">
+        Comunidad "El Limón" <br>
+        <span>@federicomartinez <div class="ui label empty circular green"></div></span>
+      </div>
+    </div>
+  </header>
+
+  <main class="registro">
+    <a href="/registrar" class="ui circular pointer icon button green button-floating">
+      <i class="ui icon add"></i>
+    </a>
+  
+    <section class="busqueda">
+      <div class="text-center">
+        <h3>Métodos de agrupamiento</h3>
+      </div>
+  
+      <div class="flex-center">
+        <div class="ui buttons full-width">
+          <div class="ui button blue active">Jefes de Familia</div>
+          <div class="ui button blue">Persona por Persona</div>
+        </div>
+      </div>
+  
+      <div class="flex-center">
+        <div class="ui buttons full-width">
+          <div class="ui button blue">Hombres</div>
+          <div class="ui button blue">Mujeres</div>
+          <div class="ui button blue">Niños</div>
+          <div class="ui button blue">Niñas</div>
+        </div>
+      </div>
+      <div class="flex-center">
+        <div class="ui buttons full-width">
+          <div class="ui button blue">Personas Discapacitadas</div>
+        </div>
+      </div>
+  
+      <div class="ui form">
+        <div class="ui fields flex-center" style="padding:10px">
+          <div class="ui field twelve wide aligned center middle">
+            <span style="font-size: 20px">Realizar una búsqueda</span>
+  
+            <div class="ui input labeled">
+              <label class="ui label"><i class="ui icon search"></i></label>
+              <input type="text" class="ui input" placeholder="Ingrese un nombre, apellido, cedula, entre otros datos">
+            </div>
+          </div>
+        </div>
+      </div>
+  
+    </section>
+
+    <section class="ui cards flex-center">
+      <% registro.forEach(elemento => { %>
+
+      <a href="#" class="ui card" style="width:260px; height: 210px">
+        <div class="content">
+          <div class="header"><%= elemento.nombre %> <%= elemento.apellido %></div>
+          <div class="description text-normal">
+            <div>
+              <i class="ui icon book"></i><b>Cedula</b>: <%= elemento.cedula %>
+            </div>
+            <div>
+              <i class="ui icon phone"></i><b>Telefono</b>: <%= elemento.telefono %>
+            </div>
+            <div>
+              <i class="ui icon home"></i><b>Casa N°</b>: <%= elemento.casa %>
+            </div>
+          </div>
+          <div class="meta">
+            <%= elemento.trabajo %>
+          </div>
+        </div>
+        <div class="extra content">
+          <%= elemento.cantidadFamilia %>+ personas más
+        </div>
+        <div class="ui bottom button attached">
+          Ver datos de esta familia
+        </div>
+      </a>
+
+      <% }) %>
+    </section>
+
+    <section class="ui flex-center" style="padding: 20px;">
+      <div class="ui menu pagination">
+        <div class="ui item active" style><i class="ui icon arrow left"></i></div>
+        <div class="ui item active">1</div>
+        <a class="ui item">2</a>
+        <a class="ui item">...</a>
+        <a class="ui item"><i class="ui icon arrow right"></i></a>
+      </div>
+    </section> <!-- Pagination -->
+  </main>
+
+  <%- include('../template/footer.ejs') %>
+  <%- include('../template/script-aside.ejs') %>
+</body>
+
+</html>

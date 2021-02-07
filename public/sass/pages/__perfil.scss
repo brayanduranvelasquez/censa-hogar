@@ -1,0 +1,101 @@
+.usuario {
+  display: block;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  box-shadow: 2px 2px 2px 0px rgb(235, 235, 235);
+  color: white;
+  width: 80%;
+  max-width: 860px;
+  padding: 20px;
+  background: rgb(255, 255, 255);
+  border: rgb(236, 236, 236) solid 1px;
+  margin-bottom: 50px;
+
+  div {
+    padding: 8px;
+    display: grid;
+    grid-template-areas: "foto nombre"
+                         "foto detalles";
+    grid-template-columns: 30% 70%;
+
+    .foto {
+      grid-area: foto;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+
+      img {
+        text-align: center;
+        width: 150px;
+        height: 150px;
+      }
+
+    }
+
+    .detalles {
+      display: flex;
+      flex-direction: column;
+      grid-area: detalles;
+      color: rgb(0, 0, 0);
+
+      div {
+        padding: 0;
+        display: inline-block;
+      }
+
+      button {
+        margin-top: 8px;
+      }
+    }
+
+    .nombre {
+      display: flex;
+      flex-direction: column;
+      grid-area: nombre;
+      color: rgb(0, 0, 0);
+      font-size: 28px;
+
+      .user {
+        color: #ccc;
+      }
+    }
+  }
+}
+
+.espaciado-sobrante {
+  display:block;
+  width: 100%;
+  height: 200px;
+}
+
+@media screen and (max-width: 680px) {
+  .usuario {
+    bottom: -460px;
+
+    div {
+      grid-template-areas: "foto"
+                           "nombre"
+                           "detalles";
+      grid-template-columns: 100%;
+
+      .foto {
+        display: flex;
+        justify-content: center;
+
+        img {
+          width: 150px;
+          height: 150px;
+        }
+      }
+    }
+
+  }
+
+  .espaciado-sobrante {
+    height: 400px;
+  }
+}
+
+

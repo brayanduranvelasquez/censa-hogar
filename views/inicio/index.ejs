@@ -1,0 +1,71 @@
+<%- include('../template/head.ejs', { titulo: 'Inicio - CensaHogar' }) %>
+
+<body>
+  <header class="encabezado">
+    <%- include('header.ejs') %>
+
+    <div class="perfil">
+      <span>Inicio</span>
+
+      <div class="activo">
+        Comunidad "El Limón" <br>
+        <span>@federicomartinez <div class="ui label empty circular green"></div></span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="ui segments horizontal">
+      <div class="ui segment">
+        <div class="ui sizer vertical segment">
+          <div class="ui icon center aligned header">
+            <i class="icon user"></i>
+            <div class="content">Ver mi perfil</div>
+            <div class="sub header segment basic">Revisa y administra todos tus datos personales</div><br>
+            <a href="/perfil" class="ui button blue">Ir</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="ui segment">
+        <div class="ui sizer vertical segment">
+          <div class="ui icon center aligned header">
+            <i class="icon book"></i>
+            <div class="content">Ver registro</div>
+            <div class="sub header segment basic">Ve a todas las personas que se han registrado.</div><br>
+            <a href="/registro" class="ui button blue">Ir</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ui segments horizontal">
+      <div class="ui segment">
+        <div class="ui sizer vertical segment">
+          <div class="ui icon center aligned header">
+            <i class="icon add"></i>
+            <div class="content">Registrar nueva familia</div>
+            <div class="sub header segment basic">Registra los datos de una nueva familia</div><br>
+            <a href="/agregar" class="ui button blue">Ir</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="ui segment">
+        <div class="ui sizer vertical segment">
+          <div class="ui icon center aligned header">
+            <i class="icon building"></i>
+            <div class="content">Ver datos de la comunidad</div>
+            <div class="sub header segment basic">Datos relevantes sobre la comunidad.</div><br>
+            <a href="/comunidad" class="ui button blue">Ir</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <%- include('../template/footer.ejs') %>
+  <%- include('../template/script-aside.ejs') %>
+</body>
+
+</html>
